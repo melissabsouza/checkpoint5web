@@ -25,29 +25,31 @@ function LoginPage():any {
         }
         );
 
-return (
-    <div className="login-container">
-        <Menu/>
-        <div className="login-content">
-        <h2>Login</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="username">Usuário:</label>
-            <input onChange={e => setEmail(e.target.value)} type="email" id="username" name="username" />
-            <br />
-            <label htmlFor="password">Senha:</label>
-            <input onChange={e => setPsw(e.target.value)} type="password" id="password" name="password" />
-            <br />
-            <button onClick={login}>Entrar</button>
-            <div className="login-links">
-            <Link to="/">Esqueci minha senha</Link>
-            <span> | </span>
-            <Link to="/cadastro">Cadastrar</Link>
+    return (
+        <>
+            <Menu/>
+            <div className="login-container">
+                <div className="login-content">
+                <h2>Login</h2>
+                    <form className="login-form" onSubmit={handleSubmit}>
+                        <label htmlFor="username">Usuário:</label>
+                        <input onChange={e => setEmail(e.target.value)} type="email" id="username" name="username" />
+                        <br />
+                        <label htmlFor="password">Senha:</label>
+                        <input onChange={e => setPsw(e.target.value)} type="password" id="password" name="password" />
+                        <br />
+                        <button onClick={login}>Entrar</button>
+                        <div className="login-links">
+                            <Link to="/">Esqueci minha senha</Link>
+                            <span> | </span>
+                            <Link to="/cadastro">Cadastrar</Link>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
-        </div>
-        <Footer/>
-    </div>
-);
+            <Footer/>
+        </>
+    );
 }
 
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
