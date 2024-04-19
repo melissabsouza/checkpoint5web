@@ -1,10 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import Footer from '../../Components/Footer/Footer';
 import Menu from '../../Components/Menu/Menu';
+import axios from 'axios';
 
-const Login: React.FC = () => {
+function LoginPage():any {
+
+    const[email, setEmail] = useState("")
+    const[psw, setPsw] = useState("")
+
+    const login:any = axios({
+        method:"post",
+        url:'https://caiohalbert.bsite.net/api/user/login',
+        data:{
+            "email": email,
+            "password": psw
+        }
+    
+    }).then(response =>
+        {
+            console.log(response.data);
+        }
+        );
+
 return (
     <div className="login-container">
         <Menu/>
@@ -12,12 +32,12 @@ return (
         <h2>Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="username">Usuário:</label>
-            <input type="text" id="username" name="username" />
+            <input onChange={e => setEmail(e.target.value)} type="email" id="username" name="username" />
             <br />
             <label htmlFor="password">Senha:</label>
-            <input type="password" id="password" name="password" />
+            <input onChange={e => setPsw(e.target.value)} type="password" id="password" name="password" />
             <br />
-            <button type="submit">Entrar</button>
+            <button onClick={login}>Entrar</button>
             <div className="login-links">
             <Link to="/">Esqueci minha senha</Link>
             <span> | </span>
@@ -40,4 +60,4 @@ console.log('Username:', username);
 console.log('Password:', password);
 }
 
-export default Login
+export default LoginPage
