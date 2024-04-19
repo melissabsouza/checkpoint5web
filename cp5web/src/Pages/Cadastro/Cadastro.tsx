@@ -37,29 +37,30 @@ function Cadastro() :any {
       
 
 return (
-    <div className="signup-container">
+    <>
         <Menu/>
-        <div className="signup-content">
-        <h2>Cadastro</h2>
-        <form className="signup-form" onSubmit={handleSubmit}>
-            <label htmlFor="username">Usuário:</label>
-            <input onChange={(e) => setName(e.target.value)} type="name" id="username" name="username" />
-            <br />
-            <label htmlFor="email">E-mail:</label>
-            <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
-            <br />
-            <label htmlFor="password">Senha:</label>
-            <input onChange={(e) => setPsw(e.target.value)} type="password" id="password" name="password" />
-            <br />
-            <button onClick={req}>Cadastrar</button>
-        </form>
-        <div className="signup-links">
-            <Link to="../Login">Já possui uma conta? Faça login</Link>
-        </div>
+        <div className="signup-container">
+            <div className="signup-content">
+                <h2>Cadastro</h2>
+                <form className="signup-form" onSubmit={handleSubmit}>
+                    <label htmlFor="username">Usuário:</label>
+                    <input onChange={(e) => setName(e.target.value)} type="name" id="username" name="username" />
+                    <br />
+                    <label htmlFor="email">E-mail:</label>
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
+                    <br />
+                    <label htmlFor="password">Senha:</label>
+                    <input onChange={(e) => setPsw(e.target.value)} type="password" id="password" name="password" />
+                    <br />
+                    <button onClick={req}>Cadastrar</button>
+                </form>
+                <div className="signup-links">
+                    <Link to="../Login">Já possui uma conta? Faça login</Link>
+                </div>
+            </div>
         </div>
         <Footer/>
-    </div>
-    
+    </>
 );
 }
 
