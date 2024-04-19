@@ -4,9 +4,8 @@ import Menu from "../../Components/Menu/Menu"
 const Home = () =>{
     return(
         <div>
-            <h1>Home</h1>
-
             <Menu/>
+            <h1>Home</h1>
             <Footer/>
         </div>
     )
